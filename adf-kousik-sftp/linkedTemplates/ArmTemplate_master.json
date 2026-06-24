@@ -1,0 +1,126 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-kousik-sftp"
+		},
+		"AzureDataLakeStorage3_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage3'"
+		},
+		"Snowflake1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Snowflake1'"
+		},
+		"Snowflake_ls_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Snowflake_ls'"
+		},
+		"linkservicecsv_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'linkservicecsv'"
+		},
+		"linkservicedl_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'linkservicedl'"
+		},
+		"sortedorderlist_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'sortedorderlist'"
+		},
+		"AzureDataLakeStorage3_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://kk2026sftp.dfs.core.windows.net/"
+		},
+		"Snowflake1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "azurecourse"
+		},
+		"Snowflake_ls_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "adf_realtime_training"
+		},
+		"linkservicecsv_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://kk2026sftp.dfs.core.windows.net/"
+		},
+		"linkservicedl_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://kk2026sftp.dfs.core.windows.net/"
+		},
+		"sortedorderlist_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AZURECOURSE"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adf-kousik-sftp_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorage3_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage3_accountKey')]"
+					},
+					"Snowflake1_password": {
+						"value": "[parameters('Snowflake1_password')]"
+					},
+					"Snowflake_ls_password": {
+						"value": "[parameters('Snowflake_ls_password')]"
+					},
+					"linkservicecsv_accountKey": {
+						"value": "[parameters('linkservicecsv_accountKey')]"
+					},
+					"linkservicedl_accountKey": {
+						"value": "[parameters('linkservicedl_accountKey')]"
+					},
+					"sortedorderlist_password": {
+						"value": "[parameters('sortedorderlist_password')]"
+					},
+					"AzureDataLakeStorage3_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage3_properties_typeProperties_url')]"
+					},
+					"Snowflake1_properties_typeProperties_database": {
+						"value": "[parameters('Snowflake1_properties_typeProperties_database')]"
+					},
+					"Snowflake_ls_properties_typeProperties_database": {
+						"value": "[parameters('Snowflake_ls_properties_typeProperties_database')]"
+					},
+					"linkservicecsv_properties_typeProperties_url": {
+						"value": "[parameters('linkservicecsv_properties_typeProperties_url')]"
+					},
+					"linkservicedl_properties_typeProperties_url": {
+						"value": "[parameters('linkservicedl_properties_typeProperties_url')]"
+					},
+					"sortedorderlist_properties_typeProperties_database": {
+						"value": "[parameters('sortedorderlist_properties_typeProperties_database')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

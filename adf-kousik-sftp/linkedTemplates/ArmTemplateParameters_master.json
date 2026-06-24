@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-kousik-sftp"
+		},
+		"AzureDataLakeStorage3_accountKey": {
+			"value": ""
+		},
+		"Snowflake1_password": {
+			"value": ""
+		},
+		"Snowflake_ls_password": {
+			"value": ""
+		},
+		"linkservicecsv_accountKey": {
+			"value": ""
+		},
+		"linkservicedl_accountKey": {
+			"value": ""
+		},
+		"sortedorderlist_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage3_properties_typeProperties_url": {
+			"value": "https://kk2026sftp.dfs.core.windows.net/"
+		},
+		"Snowflake1_properties_typeProperties_database": {
+			"value": "azurecourse"
+		},
+		"Snowflake_ls_properties_typeProperties_database": {
+			"value": "adf_realtime_training"
+		},
+		"linkservicecsv_properties_typeProperties_url": {
+			"value": "https://kk2026sftp.dfs.core.windows.net/"
+		},
+		"linkservicedl_properties_typeProperties_url": {
+			"value": "https://kk2026sftp.dfs.core.windows.net/"
+		},
+		"sortedorderlist_properties_typeProperties_database": {
+			"value": "AZURECOURSE"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
